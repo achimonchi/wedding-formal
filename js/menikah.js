@@ -50,7 +50,19 @@ function scrollFunction() {
 $(document).ready(function($) {
   $(".preloader-wrapper").fadeOut();
   $("body").removeClass("preloader-site");
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const guest = urlParams.get("guest")
+  console.log({guest})
+  if(guest) {
+    const dearElement = document.getElementById("dear")
+    const elem = document.createElement("h4")
+    elem.classList.add("subtitle","bold")
+    elem.innerHTML = "Kepada, "+guest
+    dearElement.append(elem)
+  }
 });
+
 $(window).load(function() {
   var Body = $("body");
   Body.addClass("preloader-site");
