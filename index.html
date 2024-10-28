@@ -381,7 +381,7 @@
       const ulElm = document.createElement("ul")
       for(let i=0; i<master.length; i++){
         const li = document.createElement("li")
-        li.innerHTML = `${master[i].name} - ${master[i].rek} `
+        li.innerHTML = `${master[i].name} - ${master[i].rek} <br/>(A.n ${master[i].owner})`
         const div = document.createElement("div")
         div.innerHTML = `
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
@@ -391,7 +391,8 @@
         div.style.background = "none";
         div.style.border = "none";
         li.style.display = "flex";
-        li.style.gap = "12px";
+        li.style.alignItems = "center";
+        li.style.gap = "24px";
         li.style.justifyContent = "center";
         li.style.cursor = "pointer";
         li.addEventListener("click", function(){
@@ -404,7 +405,7 @@
 
       ulElm.style.display = "flex";
       ulElm.style.flexDirection = "column";
-      ulElm.style.gap = "8px";
+      ulElm.style.gap = "18px";
 
 
     const giftBtn = document.getElementById("gift")
