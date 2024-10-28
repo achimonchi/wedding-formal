@@ -27,7 +27,8 @@
   <script src="js/jquery.coundown.js"></script>
   <link rel="icon" type="image/png" href="image/favicon.png" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23064379-20"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <!-- Begin Script for Countdown -->
 
   <!-- Begin Script for Countdown -->
@@ -276,15 +277,25 @@
         <div class="space40px"></div>
         <div class="has-text-centered" data-aos="fade-up" data-aos-easing="linear">
           <a href="https://maps.app.goo.gl/f76sbgRmCMA7j6YW7" class="button btn-cta" target="_blank" data-aos="zoom-in">
-            <i class="far fa-directions"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-signpost-fill" viewBox="0 0 16 16">
+              <path
+                d="M7.293.707A1 1 0 0 0 7 1.414V4H2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h5v6h2v-6h3.532a1 1 0 0 0 .768-.36l1.933-2.32a.5.5 0 0 0 0-.64L13.3 4.36a1 1 0 0 0-.768-.36H9V1.414A1 1 0 0 0 7.293.707" />
+            </svg>
             &nbsp;&nbsp;Google Maps
           </a>
+          <button id="gift" class="button btn-cta" style="gap: 8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gift-fill"
+              viewBox="0 0 16 16">
+              <path
+                d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zm6 4v7.5a1.5 1.5 0 0 1-1.5 1.5H9V7zM2.5 16A1.5 1.5 0 0 1 1 14.5V7h6v9z" />
+            </svg>
+            Kado
+          </button>
         </div>
       </div>
     </section>
     <!-- End Lokasi Content -->
-
-
   </div>
   <!-- End Main Content -->
 
@@ -314,6 +325,106 @@
       easing: "ease-out",
       duration: 800,
     });
+
+    const master = [
+    
+    {
+        name:"BCA",
+        icon:"https://res.cloudinary.com/noobeeid/image/upload/v1729589620/random/wedding/Frame_33_dzr5zi.png",
+        rek:"0343306889",
+        owner:"Rahmita Ramadhanty",
+        speed:1.5,
+        // position:"bottom-[-270px]",
+        position:"-20vw",
+    },
+
+    {
+        name:"BNI",
+        icon:"https://res.cloudinary.com/noobeeid/image/upload/v1729589316/random/wedding/Frame_32_1_zx1xx9.png",
+        rek:"1330587710",
+        owner:"Rahmita Ramadhanty",
+        speed:1,
+        // position:"bottom-[-285px]",
+        position:"-28vw",
+    },
+    {
+        name:"DANA",
+        icon:"https://i.pinimg.com/originals/f5/8c/a3/f58ca3528b238877e9855fcac1daa328.jpg",
+        rek:"087716062764",
+        owner:"Reyhan Jovie Dwiputra",
+        speed:2,
+        // position:"bottom-[-470px]",
+        position:"-460vw",
+    },
+    // {
+    //     name:"BNI",
+    //     icon:"https://res.cloudinary.com/noobeeid/image/upload/v1729589962/random/wedding/Frame_34_1_qintn7.png",
+    //     rek:"087716062764",
+    //     owner:"Rahmita Ramadhanty"
+    // },
+]
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text)
+            .then(() => {
+              Swal.fire({
+                title:"Berhasil di Copy",
+                html:`<b> ${text} </b>`+" Berhasil di copy ke clipboard",
+                icon:"success"
+              })
+            })
+            .catch(err => {
+                console.error('Gagal menyalin teks: ', err);
+            });
+    }
+
+      const ulElm = document.createElement("ul")
+      for(let i=0; i<master.length; i++){
+        const li = document.createElement("li")
+        li.innerHTML = `${master[i].name} - ${master[i].rek} `
+        const div = document.createElement("div")
+        div.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+          </svg>
+        `
+        div.style.background = "none";
+        div.style.border = "none";
+        li.style.display = "flex";
+        li.style.gap = "12px";
+        li.style.justifyContent = "center";
+        li.style.cursor = "pointer";
+        li.addEventListener("click", function(){
+
+          copyToClipboard(master[i].rek)
+        })
+        li.append(div)
+        ulElm.append(li)
+      }
+
+      ulElm.style.display = "flex";
+      ulElm.style.flexDirection = "column";
+      ulElm.style.gap = "8px";
+
+
+    const giftBtn = document.getElementById("gift")
+    giftBtn.addEventListener("click", function () {
+      Swal.fire({
+        title: "Rekening",
+        // text: "You won't be able to revert this!",
+        html:ulElm,
+        icon: "info",
+      }).then((result) => {
+        // if (result.isConfirmed) {
+        //   Swal.fire({
+        //     title: "Deleted!",
+        //     text: "Your file has been deleted.",
+        //     icon: "success"
+        //   });
+        // }
+      });
+    })
+
   </script>
 </body>
 
